@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:qr_reader_app/pages/home_page.dart';
 import 'package:qr_reader_app/pages/map_page.dart';
+import 'package:qr_reader_app/providers/scan_list_provider.dart';
 import 'package:qr_reader_app/providers/ui_provider.dart';
 
 void main() => runApp(const MyApp());
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<UiProvider>(create: (_) => UiProvider())
+        ChangeNotifierProvider<UiProvider>(create: (_) => UiProvider()),
+        ChangeNotifierProvider<ScanListProvider>(create: (_) => ScanListProvider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -26,10 +28,11 @@ class MyApp extends StatelessWidget {
           'map': (_) => const MapPage()
         },
         theme: ThemeData.light().copyWith(
+          primaryColor: Colors.deepPurple,
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple)
         ),
       ),
     );
   }
-
+  
 }

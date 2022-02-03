@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:qr_reader_app/widgets/scan_tile.dart';
+
 class DirectionsPage extends StatelessWidget {
 
   const DirectionsPage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('DirectionsPage'),
-    );
+    return const ScanTile(tipo: 'http');
   }
   
 }
